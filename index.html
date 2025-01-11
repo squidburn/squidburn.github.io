@@ -32,6 +32,7 @@
             let apple = { x: 15, y: 15 };
             let velocity = { x: 0, y: 0 };
             let previousTimeStamp = 0;
+            let score = 0; // 添加计数器变量
 
             function gameLoop(timeStamp) {
                 if (timeStamp - previousTimeStamp > 100) {
@@ -47,10 +48,21 @@
                     x: (snake[0].x + velocity.x + gridSize) % gridSize,
                     y: (snake[0].y + velocity.y + gridSize) % gridSize
                 };
+
+                // 检查蛇是否碰到自己
+                if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                    alert('Game Over');
+                    snake = [{ x: 10, y: 10 }]; // 重置蛇
+                    score = 0; // 重置分数
+                    velocity = { x: 0, y: 0 }; // 重置速度
+                    return;
+                }
+
                 snake.unshift(head);
 
                 if (head.x === apple.x && head.y === apple.y) {
                     placeApple();
+                    score++; // 增加分数
                 } else {
                     snake.pop();
                 }
@@ -66,6 +78,11 @@
 
                 ctx.fillStyle = 'red';
                 ctx.fillRect(apple.x * tileSize, apple.y * tileSize, tileSize, tileSize);
+
+                ctx.fillStyle = 'black'; // 绘制分数
+                ctx.font = '20px Arial';
+                ctx.fillText(`Score: ${score}`, 10, 20);
+
             }
 
             function placeApple() {
