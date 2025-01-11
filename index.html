@@ -3,122 +3,24 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>贪吃蛇游戏</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f0f0f0;
-                margin: 0;
-            }
-
-            canvas {
-                background-color: #fff;
-                border: 1px solid #000;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2048 游戏</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <script>
-            const canvas = document.getElementById('gameCanvas');
-            const ctx = canvas.getContext('2d');
-            const gridSize = 20;
-            const tileSize = canvas.width / gridSize;
-            let snake = [{ x: 10, y: 10 }];
-            let apple = { x: 15, y: 15 };
-            let velocity = { x: 0, y: 0 };
-            let previousTimeStamp = 0;
-            let score = 0; // 添加计数器变量
-
-            function gameLoop(timeStamp) {
-                if (timeStamp - previousTimeStamp > 100) {
-                    previousTimeStamp = timeStamp;
-                    update();
-                    draw();
-                }
-                requestAnimationFrame(gameLoop);
-            }
-
-            function update() {
-                const head = {
-                    x: (snake[0].x + velocity.x + gridSize) % gridSize,
-                    y: (snake[0].y + velocity.y + gridSize) % gridSize
-                };
-
-                // 检查蛇是否碰到自己
-                if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
-                    alert('Game Over');
-                    snake = [{ x: 10, y: 10 }]; // 重置蛇
-                    score = 0; // 重置分数
-                    velocity = { x: 0, y: 0 }; // 重置速度
-                    return;
-                }
-
-                snake.unshift(head);
-
-                if (head.x === apple.x && head.y === apple.y) {
-                    placeApple();
-                    score++;
-                } else {
-                    snake.pop();
-                }
-            }
-
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = 'green';
-                snake.forEach(segment => {
-                    ctx.fillRect(segment.x * tileSize, segment.y * tileSize, tileSize, tileSize);
-                });
-
-                ctx.fillStyle = 'red';
-                ctx.fillRect(apple.x * tileSize, apple.y * tileSize, tileSize, tileSize);
-
-                ctx.fillStyle = 'black'; // 绘制分数
-                ctx.font = '20px Arial';
-                ctx.fillText(`Score: ${score}`, 10, 20);
-
-            }
-
-            function placeApple() {
-                apple = {
-                    x: Math.floor(Math.random() * gridSize),
-                    y: Math.floor(Math.random() * gridSize)
-                };
-            }
-
-            document.addEventListener('keydown', (event) => {
-                switch (event.key) {
-                    case 'ArrowUp':
-                        if (velocity.y !== 1) {
-                            velocity = { x: 0, y: -1 };
-                        }
-                        break;
-                    case 'ArrowDown':
-                        if (velocity.y !== -1) {
-                            velocity = { x: 0, y: 1 };
-                        }
-                        break;
-                    case 'ArrowLeft':
-                        if (velocity.x !== 1) {
-                            velocity = { x: -1, y: 0 };
-                        }
-                        break;
-                    case 'ArrowRight':
-                        if (velocity.x !== -1) {
-                            velocity = { x: 1, y: 0 };
-                        }
-                        break;
-                }
-            });
-
-            requestAnimationFrame(gameLoop);
-        </script>
+        <div id="game-container">
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <!-- 重复上述行三次 -->
+            </div>
+        </div>
+        <script src="script.js"></script>
     </body>
 
 </html>
