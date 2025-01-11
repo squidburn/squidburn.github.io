@@ -223,14 +223,19 @@
             }
 
             document.addEventListener('keydown', (event) => {
-                if (event.key === 'ArrowLeft') {
+                if (event.key === 'ArrowLeft' || event.key === 'a') {
                     move('left');
-                } else if (event.key === 'ArrowRight') {
+                } else if (event.key === 'ArrowRight' || event.key === 'd') {
                     move('right');
-                } else if (event.key === 'ArrowUp') {
+                } else if (event.key === 'ArrowUp' || event.key === 'w') {
                     move('up');
-                } else if (event.key === 'ArrowDown') {
+                } else if (event.key === 'ArrowDown' || event.key === 's') {
                     move('down');
+                } else if (event.key === 'Enter') {
+                    move('up');
+                    move('left');
+                    move('down');
+                    move('right');
                 }
             });
 
