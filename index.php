@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>主页</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                font-family: 'Arial', sans-serif;
-                background: url('https://bing.img.run/uhd.php') no-repeat center center fixed;
-                background-size: cover;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://bing.img.run/uhd.php') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 15%;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
             }
 
-            .container {
-                text-align: center;
-                margin-top: 15%;
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-            h1 {
-                font-size: 3em;
-                color: #fff;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                animation: fadeInDown 1s ease-out;
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            p {
-                font-size: 1.5em;
-                color: #fff;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-                animation: fadeInUp 1s ease-out;
-            }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-            @keyframes fadeInDown {
-                0% {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
 
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes fadeInUp {
-                0% {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-
-                100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .btn {
-                display: inline-block;
-                margin-top: 20px;
-                padding: 10px 20px;
-                font-size: 1.2em;
-                color: #fff;
-                background-color: rgba(0, 0, 0, 0.6);
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-            .btn:hover {
-                background-color: rgba(0, 0, 0, 0.8);
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="container">
-            <h1>欢迎来我的的主页</h1>
-            <p>在这里，您将体验到无与伦比的奢华与优雅。</p>
-            <a href="/game/index.html"><button class="btn">游戏</button></a>
-        </div>
-    </body>
+<body>
+    <div class="container">
+        <h1>欢迎来我的的主页</h1>
+        <p>在这里，您将体验到无与伦比的奢华与优雅</p>
+        <a href="/game/index.html"><button class="btn">游戏</button></a>
+    </div>
+</body>
 
 </html>
