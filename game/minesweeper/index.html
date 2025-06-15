@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>扫雷游戏</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1>扫雷</h1>
+        <div id="game-info">
+            <label>行数：<input type="number" id="input-rows" value="9" min="5" max="30" style="width:50px"></label>
+            <label>列数：<input type="number" id="input-cols" value="9" min="5" max="30" style="width:50px"></label>
+            <label>雷数：<input type="number" id="input-mines" value="10" min="1" max="200" style="width:60px"></label>
+            <button id="restart-button">重新开始</button>
+            <p>旗子数：<span id="flag-count">0</span></p>
+        </div>
+        <div id="game-board"></div>
+        <script src="main.js"></script>
+    </body>
+
+</html>
